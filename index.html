@@ -66,17 +66,17 @@
   <br><br>
   <input type="submit" onclick="getSessionReply()">
 </form>
-  
-<script>
-function GetSessionReply() {
-  document.getElementById("sessionForm").submit();
-  document.getElementById("mytext").value = "Test";
-}
-</script>
 
 <p></p>
 
 <input type="text" id="outputText">
+  
+<script>
+function GetSessionReply() {
+  document.getElementById("sessionForm").submit();
+  document.getElementById("outputText").value = "Test";
+}
+</script>
 
 </body>
 </html>
