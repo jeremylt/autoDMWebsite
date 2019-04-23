@@ -5,7 +5,7 @@
 <h2>Auto Dungon Master</h2>
 <p>Select a session type, challenge rating, and environment from the options below:</p>
 
-<form id="sessionForm" method="POST" action="https://gf4ajxpfkd.execute-api.us-west-2.amazonaws.com/webAutoDM/autodm?">
+<form method="POST" action="https://gf4ajxpfkd.execute-api.us-west-2.amazonaws.com/webAutoDM/autodm?name=MonsterByCR">
   <input type="hidden" id="web" name="web" value="1">
   <select name="name">
     <option value="MonsterByCR">Monster</option>
@@ -65,7 +65,7 @@
     <option value="urban">Urban</option>
   </select>
   <br><br>
-  <input type="submit" onclick="getSessionReply()">
+  <input type="submit">
 </form>
 
 <p></p>
