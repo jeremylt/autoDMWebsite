@@ -5,7 +5,7 @@
 <h2>Auto Dungon Master</h2>
 <p>Select a session type, challenge rating, and environment from the options below:</p>
 
-<form method="POST" action="https://gf4ajxpfkd.execute-api.us-west-2.amazonaws.com/webAutoDM/autodm">
+<form id="sessionForm" method="POST" action="https://gf4ajxpfkd.execute-api.us-west-2.amazonaws.com/webAutoDM/autodm">
   <select name="name">
     <option value="Monster">Monster</option>
     <option value="NPC">NPC</option>
@@ -64,20 +64,19 @@
     <option value="urban">Urban</option>
   </select>
   <br><br>
-  <input type="submit">
+  <input type="submit" onclick="getSessionReply()>
 </form>
   
 <script>
-function myFunction() {
-  document.getElementById("frm1").submit();
+function GetSessionReply() {
+  document.getElementById("sessionForm").submit();
+  document.getElementById("mytext").value = "Test";
 }
 </script>
 
 <p></p>
 
- <textarea name="output" rows="10" cols="30">
-Output goes here.
-</textarea> 
+<input type="text" id="outputText">
 
 </body>
 </html>
