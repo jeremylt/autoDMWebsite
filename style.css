@@ -17,10 +17,13 @@ h2 {
   padding:5px;
 }
 
-.headContainer {
+.header {
   width: 100%;
   text-align: center;
   background: #383838;
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 10px;
 }
 
 .bodyContainer {
@@ -47,6 +50,9 @@ h2 {
   background-color: #383838;
   color: white;
   text-align: center;
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 10px;
 }
 
 a:link{
