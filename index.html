@@ -102,17 +102,19 @@ function getSessionReply() {
   Http.open("GET", url);
   Http.send();
   Http.onreadystatechange=(e)=>{
-    // Get response
-    let response = JSON.parse(Http.responseText);
-    const outputText = document.getElementById('outputText').innerHTML
+    if (Http.readyState === 4) {
+      // Get response
+      let response = JSON.parse(Http.responseText);
+      const outputText = document.getElementById('outputText').innerHTML
 
-    // Convert to HTML
-    response.body = response.body.replace('\n', '<br>');
-    response.body = response.body.replace('\t', '    ');
+      // Convert to HTML
+      response.body = response.body.replace('\n', '<br>');
+      response.body = response.body.replace('\t', '    ');
 
-    // Update output
-    const newText = response.body + "<br><br>" + outputText;
-    document.getElementById('outputText').innerHTML = newText;
+      // Update output
+      const newText = response.body + "<br><br>" + outputText;
+      document.getElementById('outputText').innerHTML = newText;
+    }
   }
 }
 </script>
