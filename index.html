@@ -69,7 +69,7 @@
 
 <p></p>
 
-<input type="text" value="" id="outputText">
+<div id="outputText"></div>
   
 <script>
 function getSessionReply() {
@@ -103,11 +103,16 @@ function getSessionReply() {
   Http.send();
   Http.onreadystatechange=(e)=>{
     // Get response
-    const response = JSON.parse(Http.responseText);
-    const text = document.getElementById('outputText').value
+    let response = JSON.parse(Http.responseText);
+    const outputText = document.getElementById('outputText').innerHTML
+
+    // Convert to HTML
+    response.body = response.body.replace('\n', '<br>');
+    response.body = response.body.replace('\t', '    ');
 
     // Update output
-    document.getElementById('outputText').value = response.body + "\n\n" + text;
+    const newText = response.body + "<br><br>" + outputText;
+    document.getElementById('outputText').innerHTML = newText;
   }
 }
 </script>
