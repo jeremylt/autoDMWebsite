@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
+
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+</head>
+
 <body>
 
 <h2>Auto Dungon Master</h2>
@@ -108,8 +114,8 @@ function getSessionReply() {
       const outputText = document.getElementById('outputText').innerHTML
 
       // Convert to HTML
-      response.body = response.body.replace('\n', '<br>');
-      response.body = response.body.replace('\t', '    ');
+      response.body = response.body.replace(/\n/g, '<br>');
+      response.body = response.body.replace(/\t/g, '&nbsp &nbsp &nbsp &nbsp');
 
       // Update output
       const newText = response.body + "<br><br>" + outputText;
