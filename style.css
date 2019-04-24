@@ -1,0 +1,18 @@
+h2 {
+  color : red
+}
+
+.table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.row { display:table-row; }
+
+.cell {
+  display:table-cell;
+  text-align: center;
+  font-weight: bold;
+  padding:5px;
+}
