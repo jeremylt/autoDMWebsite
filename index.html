@@ -102,9 +102,12 @@ function getSessionReply() {
   Http.open("GET", url);
   Http.send();
   Http.onreadystatechange=(e)=>{
-    console.log(Http.responseText)
+    // Get response
+    const response = JSON.parse(Http.responseText);
     const text = document.getElementById('outputText').value
-    document.getElementById('outputText').value = Http.responseText + "\n\n" + text;
+
+    // Update output
+    document.getElementById('outputText').value = response.body + "\n\n" + text;
   }
 }
 </script>
