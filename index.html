@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-<body>
 
+<head>
+Access-Control-Allow-Origin: "https://gf4ajxpfkd.execute-api.us-west-2.amazonaws.com"
+</head>
+
+<body>
 <h2>Auto Dungon Master</h2>
 <p>Select a session type, challenge rating, and environment from the options below:</p>
 
-<form method="get" action="https://gf4ajxpfkd.execute-api.us-west-2.amazonaws.com/webAutoDM/autodm">
-  <input type="hidden" id="web" name="web" value="1">
-  <select name="name">
-    <option value="MonsterByCR">Monster</option>
-    <option value="NPCByCR">NPC</option>
-    <option value="EncounterByCR">Encounter</option>
-    <option value="PlotArcByCR">Plot Arc</option>
+<form id="sessionRequest">
+  <select name="name" id="name">
+    <option value="Monster">Monster</option>
+    <option value="NPC">NPC</option>
+    <option value="Encounter">Encounter</option>
+    <option value="PlotArc">Plot Arc</option>
   </select>
-  <select name="cr">
+  <select name="cr" id="cr">
     <option value=""></option>
     <option value="0">0</option>
     <option value="1%2F8">1/8</option>
@@ -50,7 +53,7 @@
     <option value="29">29</option>
     <option value="30">30</option>
   </select>
-  <select name="env">
+  <select name="env" id="env">
     <option value=""></option>
     <option value="arctic">Arctic</option>
     <option value="coastal">Coastal</option>
@@ -65,17 +68,48 @@
     <option value="urban">Urban</option>
   </select>
   <br><br>
-  <input type="submit">
+  <input type="button" value="Submit" onclick="JavaScript:getSessionReply()">
 </form>
 
 <p></p>
 
-<input type="text" id="outputText">
+<input type="text" value="" id="outputText">
   
 <script>
-function GetSessionReply() {
-  document.getElementById("sessionForm").submit();
-  document.getElementById("outputText").value = "Test";
+function getSessionReply() {
+  // Get variables
+  let name = document.getElementById('name').value;
+  const cr = document.getElementById('cr').value;
+  const env = document.getElementById('env').value;
+  
+  // Build name
+  name = name + "By";
+  if (cr !== "") {
+    if (env !== "") {
+      name = name + "CRandEnv";
+    } else {
+      name = name + "CR";
+    }
+  } else if (env !== "") {
+    name = name + "Env";
+  } else {
+    name = name + "Itself";
+  }
+  
+  // Build query string
+  let url = "https://gf4ajxpfkd.execute-api.us-west-2.amazonaws.com/webAutoDM/autodm?"
+  const queryString = "web=1&name=" + name + "&cr=" + cr + "&env=" + env;
+  url += queryString;
+  
+  // Get request
+  const Http = new XMLHttpRequest();
+  Http.open("GET", url);
+  Http.send();
+  Http.onreadystatechange=(e)=>{
+    console.log(Http.responseText)
+  }
+  
+  document.getElementById('outputText').value += queryString;
 }
 </script>
 
