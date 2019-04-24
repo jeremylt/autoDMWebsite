@@ -4,20 +4,31 @@
 <head>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
+<link type="text/css" href="style.css" rel="stylesheet"/>
 </head>
 
 <body>
 
+<! Selection Options >
 <h2>Auto Dungon Master</h2>
 <p>Select a session type, challenge rating, and environment from the options below:</p>
 
 <form id="sessionRequest">
+  <div class="table">
+
+  <div class="cell">
+  <label for="name">Session Type<br>
   <select name="name" id="name">
     <option value="Monster">Monster</option>
     <option value="Npc">NPC</option>
     <option value="Encounter">Encounter</option>
     <option value="PlotArc">Plot Arc</option>
   </select>
+  </div>
+  </label>
+
+  <div class="cell">
+  <label for="cr">Challenge Rating<br>
   <select name="cr" id="cr">
     <option value=""></option>
     <option value="0">0</option>
@@ -55,6 +66,12 @@
     <option value="29">29</option>
     <option value="30">30</option>
   </select>
+  </label>
+  </div>
+
+
+  <div class="cell">
+  <label for="env">Environment<br>
   <select name="env" id="env">
     <option value=""></option>
     <option value="arctic">Arctic</option>
@@ -69,14 +86,20 @@
     <option value="underwater">Underwater</option>
     <option value="urban">Urban</option>
   </select>
+  </label>
+  </div>
+
+  </div>
   <br><br>
   <input type="button" value="Submit" onclick="JavaScript:getSessionReply()">
 </form>
 
 <p></p>
 
-<div id="outputText"></div>
-  
+<! Output Text >
+<div id="outputText" style="border:1px solid black"></div>
+
+<! Javascript - Get request >
 <script>
 function getSessionReply() {
   // Get variables
