@@ -16,3 +16,16 @@ h2 {
   font-weight: bold;
   padding:5px;
 }
+
+.headContainer {
+  width: 100%;
+  text-align: center;
+  background: #383838;
+}
+
+.bodyContainer {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
