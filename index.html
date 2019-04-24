@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-Access-Control-Allow-Origin: "https://gf4ajxpfkd.execute-api.us-west-2.amazonaws.com"
-</head>
-
 <body>
+
 <h2>Auto Dungon Master</h2>
 <p>Select a session type, challenge rating, and environment from the options below:</p>
 
@@ -107,9 +103,9 @@ function getSessionReply() {
   Http.send();
   Http.onreadystatechange=(e)=>{
     console.log(Http.responseText)
+    const text = document.getElementById('outputText').value
+    document.getElementById('outputText').value = Http.responseText + "\n\n" + text;
   }
-  
-  document.getElementById('outputText').value += queryString;
 }
 </script>
 
