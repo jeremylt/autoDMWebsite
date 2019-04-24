@@ -4,13 +4,18 @@
 <head>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
-<link type="text/css" href="https://jeremylt.github.io/autoDMWebsite/style.css" rel="stylesheet"/>
+<link type="text/css" href="style.css" rel="stylesheet"/>
+
+<div class="headContainer">
+<h2>Auto Dungeon Master</h2>
+</div>
+
 </head>
 
 <body>
+<div class="bodyContainer">
 
 <! Selection Options >
-<h2>Auto Dungon Master</h2>
 <p>Select a session type, challenge rating, and environment from the options below:</p>
 
 <form id="sessionRequest">
@@ -99,6 +104,8 @@
 <! Output Text >
 <div id="outputText" style="border:1px solid black"></div>
 
+</div> <! Body Container >
+
 <! Javascript - Get request >
 <script>
 function getSessionReply() {
@@ -147,6 +154,5 @@ function getSessionReply() {
   }
 }
 </script>
-
 </body>
 </html>
